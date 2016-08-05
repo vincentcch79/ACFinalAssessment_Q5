@@ -92,7 +92,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if segue.identifier == "addPhotoSegue" {
             let vc = segue.destinationViewController as! AddingPhotoViewController
             vc.delegate = self
+        } else if segue.identifier == "detailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow{
+            let detailVC = segue.destinationViewController as! shareViewController
+            detailVC.detailArr = dataArr[indexPath.row]
+            }
         }
+    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        self.performSegueWithIdentifier("detailSegue", sender: dataArr[indexPath.row])
     }
     
     

@@ -16,6 +16,7 @@
 		9F35CB1E1D539F9C000A10A3 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F35CB1C1D539F9C000A10A3 /* CustomCell.xib */; };
 		9F35CB201D539FAB000A10A3 /* localBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F35CB1F1D539FAB000A10A3 /* localBase.swift */; };
 		9FFD1CD11D543298008DC601 /* AddingPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD1CD01D543298008DC601 /* AddingPhotoViewController.swift */; };
+		9FFD1CD31D54EDA3008DC601 /* shareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFD1CD21D54EDA3008DC601 /* shareViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9F35CB1C1D539F9C000A10A3 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		9F35CB1F1D539FAB000A10A3 /* localBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = localBase.swift; sourceTree = "<group>"; };
 		9FFD1CD01D543298008DC601 /* AddingPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddingPhotoViewController.swift; sourceTree = "<group>"; };
+		9FFD1CD21D54EDA3008DC601 /* shareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = shareViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				9F35CB1C1D539F9C000A10A3 /* CustomCell.xib */,
 				9F35CB1F1D539FAB000A10A3 /* localBase.swift */,
 				9FFD1CD01D543298008DC601 /* AddingPhotoViewController.swift */,
+				9FFD1CD21D54EDA3008DC601 /* shareViewController.swift */,
 			);
 			path = ACFinalAssessment_Q5;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			files = (
 				9F35CB201D539FAB000A10A3 /* localBase.swift in Sources */,
 				9F35CB0C1D539EF5000A10A3 /* ViewController.swift in Sources */,
+				9FFD1CD31D54EDA3008DC601 /* shareViewController.swift in Sources */,
 				9F35CB1D1D539F9C000A10A3 /* CustomCell.swift in Sources */,
 				9F35CB0A1D539EF5000A10A3 /* AppDelegate.swift in Sources */,
 				9FFD1CD11D543298008DC601 /* AddingPhotoViewController.swift in Sources */,
