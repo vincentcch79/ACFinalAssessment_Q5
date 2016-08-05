@@ -14,7 +14,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let customCellIdentifier = "cellIdentifier"
     var dataArr:[localData] = []
     var photoID:Int = 0
-    var mutableDataArr = NSMutableArray!(daraArr)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +26,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         retrieveDatabase()
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        retrieveDatabase()
+        self.tableView.reloadData()
     }
     
     func retrieveDatabase() {
@@ -65,21 +70,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            self.deleteData(dataArr[indexPath.row])
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        }
-    }
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == .Delete {
+//            self.deleteData(dataArr[indexPath.row])
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//        }
+//    }
     
-    func deleteData(sender: AnyObject) {
-//        dataArr.removeObject(sender)
-        
-        var userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setObject(dataArr, forKey: "itemList")
-        userDefaults.synchronize()
-    }
-    
+//    func deleteData(sender: AnyObject) {
+////        dataArr.removeObject(sender)
+//        
+//        var userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+//        userDefaults.removeObjectForKey("insertionID")
+//        userDefaults.removeObjectForKey("/Documents/\(photoID).jpg")
+//        userDefaults.removeObjectForKey("nameOfID\(photoID)")
+//        
+////        userDefaults.setObject(dataArr, forKey: "insertionID")
+////        userDefaults.se
+//        userDefaults.synchronize()
+//    }
+//    
     
     func sendDataToPreviousView(Content: String, Pic: UIImage) {
         

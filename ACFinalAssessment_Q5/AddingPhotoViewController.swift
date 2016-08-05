@@ -22,6 +22,7 @@ class AddingPhotoViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         self.contentTextField.delegate = self
+        
 
     }
 
@@ -65,8 +66,8 @@ class AddingPhotoViewController: UIViewController, UIImagePickerControllerDelega
     func imagePickerController(picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         print("info \(info)")
-        let image = info["UIImagePickerControllerOriginalImage"] as? UIImage
-        self.mediumPhotoImageView.image = image
+        let image = info["UIImagePickerControllerOriginalImage"]
+        self.mediumPhotoImageView.image = image as? UIImage
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -75,6 +76,7 @@ class AddingPhotoViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func takePicAction(sender: AnyObject) {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .Camera
+        imagePicker.delegate = self
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     @IBAction func confirmButton(sender: AnyObject) {
