@@ -90,6 +90,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        userDefaults.synchronize()
 //    }
 //    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "addPhotoSegue" {
+            let vc = segue.destinationViewController as! AddingPhotoViewController
+            vc.delegate = self
+        }
+    }
+    
     
     func sendDataToPreviousView(Content: String, Pic: UIImage) {
         
