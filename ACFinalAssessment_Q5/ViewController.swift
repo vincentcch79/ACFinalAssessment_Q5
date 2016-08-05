@@ -8,12 +8,14 @@
 
 import UIKit
 
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MyProtocol {
 
     @IBOutlet weak var tableView: UITableView!
     let customCellIdentifier = "cellIdentifier"
     var dataArr:[localData] = []
     var photoID:Int = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +47,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 dataArr.append(singleData)
             }
         }
+        dataArr = dataArr.reverse()
         self.tableView.reloadData()
     }
     
@@ -72,14 +75,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
+            
             self.deleteData(dataArr[indexPath.row])
+            dataArr.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
         }
     }
     
     func deleteData(sender: AnyObject) {
-//        dataArr.removeObject(sender)
-        
+
         let userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.removeObjectForKey("insertionID")
         userDefaults.removeObjectForKey("/Documents/\(photoID).jpg")
