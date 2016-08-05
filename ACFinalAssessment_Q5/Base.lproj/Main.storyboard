@@ -39,6 +39,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Und-fa-iER" id="Mws-fJ-EGZ"/>
+                        <segue destination="wEa-SH-lGF" kind="show" identifier="detailSegue" id="fuF-SW-m0J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -124,7 +125,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ikz-jh-lI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1568" y="-387"/>
+            <point key="canvasLocation" x="1600" y="-651"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vRK-lw-wQf">
+            <objects>
+                <viewController id="wEa-SH-lGF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xc7-k4-epo"/>
+                        <viewControllerLayoutGuide type="bottom" id="5NH-jg-Iom"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ecV-HJ-T9H">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XMk-an-eqx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="6Jh-Gk-AJ2"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kbl-Fo-z26" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1600" y="46"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hPL-tJ-eKq">

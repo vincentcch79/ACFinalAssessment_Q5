@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let customCellIdentifier = "cellIdentifier"
     var dataArr:[localData] = []
     var photoID:Int = 0
+    var mutableDataArr = NSMutableArray!(daraArr)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,9 +65,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            self.deleteData(dataArr[indexPath.row])
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
+    
+    func deleteData(sender: AnyObject) {
+//        dataArr.removeObject(sender)
+        
+        var userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setObject(dataArr, forKey: "itemList")
+        userDefaults.synchronize()
+    }
+    
+    
     func sendDataToPreviousView(Content: String, Pic: UIImage) {
         
-        let image:NSData = UIImageJPEGRepresentation(Pic, 1)!
+        let image:NSData = UIImageJPEGRepresentation(Pic, 0.5)!
         let imagePath = NSHomeDirectory().stringByAppendingString("/Documents/\(photoID).jpg")
         image.writeToFile(imagePath, atomically: true)
         NSUserDefaults.standardUserDefaults().setObject(Content, forKey: "nameOfID\(photoID)")
