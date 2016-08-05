@@ -23,7 +23,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.estimatedRowHeight = 70
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.registerNib(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: customCellIdentifier)
-
         retrieveDatabase()
         
     }
@@ -31,11 +30,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         retrieveDatabase()
-        self.tableView.reloadData()
+ 
     }
-    
     func retrieveDatabase() {
         
+        dataArr.removeAll()
         photoID = NSUserDefaults.standardUserDefaults().integerForKey("insertionID")
         if NSUserDefaults.standardUserDefaults().objectForKey("nameOfID0") != nil {
             for photoNum in 0..<photoID {
@@ -46,6 +45,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 dataArr.append(singleData)
             }
         }
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,26 +70,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == .Delete {
-//            self.deleteData(dataArr[indexPath.row])
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//        }
-//    }
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            self.deleteData(dataArr[indexPath.row])
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
     
-//    func deleteData(sender: AnyObject) {
-////        dataArr.removeObject(sender)
-//        
-//        var userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-//        userDefaults.removeObjectForKey("insertionID")
-//        userDefaults.removeObjectForKey("/Documents/\(photoID).jpg")
-//        userDefaults.removeObjectForKey("nameOfID\(photoID)")
-//        
-////        userDefaults.setObject(dataArr, forKey: "insertionID")
-////        userDefaults.se
-//        userDefaults.synchronize()
-//    }
-//    
+    func deleteData(sender: AnyObject) {
+//        dataArr.removeObject(sender)
+        
+        let userDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.removeObjectForKey("insertionID")
+        userDefaults.removeObjectForKey("/Documents/\(photoID).jpg")
+        userDefaults.removeObjectForKey("nameOfID\(photoID)")
+    
+        userDefaults.synchronize()
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "addPhotoSegue" {
             let vc = segue.destinationViewController as! AddingPhotoViewController
